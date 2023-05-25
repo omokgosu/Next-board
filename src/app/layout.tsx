@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
 import LoginBtn from './LoginBtn'
+import DarkMode from './dakrmode'
 import { getServerSession} from 'next-auth'
 import { authOptions } from '../../pages/api/auth/[...nextauth]'
 
@@ -18,6 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
+
   return (
       <html lang="en">
         <body className={inter.className}>
@@ -25,6 +27,7 @@ export default async function RootLayout({
             <Link href="/" className="logo">AppleForum</Link>
             <Link href="/list">List</Link>
             <LoginBtn></LoginBtn>
+            <DarkMode></DarkMode>
           </div>
           {children}
         </body>
