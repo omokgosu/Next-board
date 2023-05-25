@@ -1,9 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
-import LoginBtn from './loginBtn'
+import LoginBtn from './LoginBtn'
 import { getServerSession} from 'next-auth'
-import { authOptions} from '../../pages/api/auth/[...nextauth]'
+import { authOptions } from '../../pages/api/auth/[...nextauth]'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,19 +18,16 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  let session =   await getServerSession(authOptions)
-  console.log(session)
-  
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="navbar">
-          <Link href="/" className="logo">AppleForum</Link>
-          <Link href="/list">List</Link>
-          <LoginBtn></LoginBtn>
-        </div>
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={inter.className}>
+          <div className="navbar">
+            <Link href="/" className="logo">AppleForum</Link>
+            <Link href="/list">List</Link>
+            <LoginBtn></LoginBtn>
+          </div>
+          {children}
+        </body>
+      </html>
   )
 }
